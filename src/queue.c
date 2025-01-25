@@ -16,3 +16,9 @@ bool is_empty(SimpleQ* _sQueue)
 {
     return _sQueue->size == 0;
 }
+
+// Enqueue function
+bool enqueue() 
+{
+    return false; 
+}
