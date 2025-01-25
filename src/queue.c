@@ -7,6 +7,8 @@ SimpleQ* create_queue()
     if (newQueue != NULL) 
     {
         newQueue->size = 0;
+        newQueue->head = 0;     // Initialize head index
+        newQueue->tail = 0;     // Initialize tail index
     }
     return newQueue;
 } 
@@ -28,10 +30,12 @@ bool enqueue(SimpleQ* _sQueue, int value)
 {
     if (is_full(_sQueue)) 
     {
-        return false;                       // Return false if queue is full
+        return false;                                       // Return false if queue is full
     }
 
-    _sQueue->data[_sQueue->size++] = value; // Add value to the queue
+    _sQueue->data[_sQueue->tail] = value;                   // Insert value at tail
+    _sQueue->tail = (_sQueue->tail + 1) % MAX_QUEUE_SIZE;   // Increment tail circularly
+    _sQueue->size++;                                        // Increase the size
     return true;
 }
 
@@ -40,14 +44,11 @@ bool dequeue(SimpleQ* _sQueue, int* value)
 {
     if (is_empty(_sQueue)) 
     {
-        return false;                       // Fail if queue is empty
+        return false;                                       // Fail if queue is empty
     }
 
-    *value = _sQueue->data[0];              // Retrieve the first value
-    for (int i = 1; i < _sQueue->size; i++) 
-    {
-        _sQueue->data[i - 1] = _sQueue->data[i]; // Shift all remaining items left
-    }
-    _sQueue->size--;                        // Decrease the size
-    return true;                            // Dequeue successful
+    *value = _sQueue->data[_sQueue->head];                  // Retrieve value at head
+    _sQueue->head = (_sQueue->head + 1) % MAX_QUEUE_SIZE;   // Increment head circularly
+    _sQueue->size--;                                        // Decrease the size
+    return true;                                            // Dequeue successful
 }

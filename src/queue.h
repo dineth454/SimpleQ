@@ -12,6 +12,8 @@ typedef struct
 {
     int data[MAX_QUEUE_SIZE];       // Array to hold queue data
     size_t size;                    // current size of the queue
+    int head;                       // Index of the first item
+    int tail;                       // Index of the next available position for insertion
 } SimpleQ;
 
 // Declaration of the basic functions
