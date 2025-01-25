@@ -1,6 +1,5 @@
 #include "queue.h"
 
-// Initialize the queue
 // Constructor-like function to initialize SimpleQ
 SimpleQ* create_queue() 
 {
@@ -18,7 +17,12 @@ bool is_empty(SimpleQ* _sQueue)
 }
 
 // Enqueue function
-bool enqueue() 
+bool enqueue(SimpleQ* _sQueue, int value) 
 {
+    if (_sQueue->size < MAX_QUEUE_SIZE) 
+    { 
+        _sQueue->data[_sQueue->size++] = value;
+        return true;
+    }
     return false; 
 }
