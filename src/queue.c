@@ -33,3 +33,9 @@ bool enqueue(SimpleQ* _sQueue, int value)
     _sQueue->data[_sQueue->size++] = value; // Add value to the queue
     return true;
 }
+
+// Dequeue function
+bool dequeue(SimpleQ* _sQueue, int* value)
+{
+    return false;
+}
