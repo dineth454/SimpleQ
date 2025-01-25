@@ -13,6 +13,19 @@ SimpleQ* create_queue()
     return newQueue;
 } 
 
+// free resources
+void destroy_queue(SimpleQ* _sQueue)
+{
+    if (_sQueue->data != NULL) 
+    {
+        free(_sQueue->data);        // free the dynamically allocated data array
+    }
+                                    // Reset other queue properties, if necessary
+    _sQueue->size = 0;
+    _sQueue->head = 0;
+    _sQueue->tail = 0;
+}
+
 // Check if size is zero; If so, return true
 bool is_empty(SimpleQ* _sQueue)
 {
