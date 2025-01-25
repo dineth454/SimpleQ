@@ -26,7 +26,8 @@ bool is_full(SimpleQ* _sQueue)
 // Enqueue function
 bool enqueue(SimpleQ* _sQueue, int value) 
 {
-    if (is_full(_sQueue)) {
+    if (is_full(_sQueue)) 
+    {
         return false;                       // Return false if queue is full
     }
 
@@ -37,5 +38,16 @@ bool enqueue(SimpleQ* _sQueue, int value)
 // Dequeue function
 bool dequeue(SimpleQ* _sQueue, int* value)
 {
-    return false;
+    if (is_empty(_sQueue)) 
+    {
+        return false;                       // Fail if queue is empty
+    }
+
+    *value = _sQueue->data[0];              // Retrieve the first value
+    for (int i = 1; i < _sQueue->size; i++) 
+    {
+        _sQueue->data[i - 1] = _sQueue->data[i]; // Shift all remaining items left
+    }
+    _sQueue->size--;                        // Decrease the size
+    return true;                            // Dequeue successful
 }
