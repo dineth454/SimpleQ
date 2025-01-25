@@ -17,6 +17,7 @@ typedef struct
 // Declaration of the basic functions
 SimpleQ* create_queue();
 bool is_empty(SimpleQ* _sQueue);
+bool is_full(SimpleQ* _sQueue);
 bool enqueue(SimpleQ* _sQueue, int value);
 
 #endif /* QUEUE_H */
