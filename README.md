@@ -28,9 +28,9 @@ Even though C is not an object-oriented language, object-oriented principles are
 
 ### 4. **Testing and TDD Approach**
 This project follows a TDD approach:
-1. Initially, failing tests were committed, testing the queue's behavior such as enqueueing, dequeueing, checking for fullness/emptiness.
-2. Code was written to pass each test case, and then refactored for clarity and efficiency.
-3. The tests are written using the Unity testing framework to verify each operation of the queue.
+- Initially, failing tests were committed, testing the queue's behavior such as enqueueing, dequeueing, checking for fullness/emptiness.
+- Code was written to pass each test case, and then refactored for clarity and efficiency.
+- The tests are written using the Unity testing framework to verify each operation of the queue.
 
 ## Project Structure
 
@@ -38,19 +38,38 @@ This project follows a TDD approach:
 - **`queue.c`**: Contains the implementation of all the queue functions, including initialization, enqueue, dequeue, and destruction.
 - **`test_queue.c`**: Contains unit tests written using the Unity framework to test the functionality of the queue.
 
+## Build Environment
+
+This project was developed and tested on the following environment:
+- **Operating System**: WSL (Windows Subsystem for Linux) running Ubuntu
+- **Compiler**: GCC (GNU Compiler Collection)
+- **Testing Framework**: Unity (by ThrowTheSwitch)
+- **Make Tool**: GNU Make
+
 ## How to Build and Run the Tests
 
+### Prerequisites
+Ensure the following tools are installed in your Linux environment:
+- **GCC**:
+   ```bash
+   sudo apt update
+   sudo apt install build-essential
+- **Make**:
+   ```bash
+   sudo apt install make
+- **Unity Testing Framework**: Clone and include the Unity framework in your project directory. Follow the instructions in the Unity documentation (https://github.com/ThrowTheSwitch/Unity/blob/master/README.md)
+
+### Steps to build and run
 1. Clone the repository:
    ```bash
    git clone https://github.com/dineth454/SimpleQ.git
    cd SimpleQ
-2. Install Unity testing framework: Follow the instructions provided in the Unity documentation (https://github.com/ThrowTheSwitch/Unity/blob/master/README.md) to set up Unity.
-3. Build the project: You can use the provided Makefile to compile the project. Run the following command:
+2. Build the project: You can use the provided Makefile to compile the project. Run the following command:
    ```bash
    make
-4. Run the tests: After building, run the tests using the Unity test runner:
+3. Run the tests: After building, run the tests using the Unity test runner:
    ```bash
    ./test_simpleq
-5. Clean the project: To clean up object files and binaries, run:
+4. Clean the project: To clean up object files and binaries, run:
    ```bash
    make clean
